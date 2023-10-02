@@ -1,6 +1,6 @@
 # ✨ JavaScript Practice ✨
 
-This repository contains 7 sets of exercises which will help you to build your ability and confidence with JavaScript. Completing all 8 sets would be ideal, but please ensure you complete at least the first 5.
+This repository contains 7 sets of exercises which will help you to build your ability and confidence with JavaScript. Completing all 7 sets would be ideal, but please ensure you complete at least the first 5.
 
 We will be checking over your solutions, so please ensure you `commit` after solving each problem, and don't forget to `push` to GitHub regularly.
 
