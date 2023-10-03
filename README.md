@@ -1,6 +1,8 @@
 # ✨ JavaScript Practice ✨
 
-This repository contains 7 sets of exercises which will help you to build your ability and confidence with JavaScript. Completing all 7 sets would be ideal, but please ensure you complete at least the first 5.
+Before we begin covering the content of the programme we'd like you to complete some warmup exercises in JavaScript, similar to those you completed in order to get into the programme. This will get you back into the flow of programming, help you explore some new language features and build familiarity with the programming environment. And hopefully you'll have some fun too!
+
+This repository contains 7 sets of exercises which will help you to build your ability and confidence with JavaScript ahead of the start of the programme. Completing all sets would be ideal, but please ensure you complete at least the first 5.
 
 We will be checking over your solutions, so please ensure you `commit` after solving each problem, and don't forget to `push` to GitHub regularly.
 
@@ -46,6 +48,10 @@ The short version is that you must:
 
 👉 Use `git add`, `git commit` and `git push` to upload your work to the forked repository on your github account.
 
+### ✅ How to submit
+
+👉 Once completed, please attach a link to your GitHub repository to the assignment submission on Google Classroom. Ensure that your repo is set to "Public" on github so we can see it!
+
 ### 💻 Completing the challenges
 
 👉 First, look inside the **docs** directory. Each exercise has an accompanying `md` file which contains instructions, hints and tips, so be sure to read these!
@@ -63,18 +69,18 @@ Your task is to make every test pass for each file. To run the tests, use the co
 Work through each test one by one until you have them all passing. Initially, you'll have a lot of failing tests and a lot of output on the console. To focus on a single test, you can add `.only` to the test you are interested in:
 
 ```javascript
-describe('capitalize', () => {
-	test.only('returns a capitalized word', () => {
-		expect(capitalize('hello')).toBe('Hello');
-	});
+describe("capitalize", () => {
+  test.only("returns a capitalized word", () => {
+    expect(capitalize("hello")).toBe("Hello");
+  });
 
-	test('does nothing if the word is already capitalized', () => {
-		expect(capitalize('Hello')).toBe('Hello');
-	});
+  test("does nothing if the word is already capitalized", () => {
+    expect(capitalize("Hello")).toBe("Hello");
+  });
 
-	test('capitalizes the first word of a sentence', () => {
-		expect(capitalize('the quick fox')).toBe('The quick fox');
-	});
+  test("capitalizes the first word of a sentence", () => {
+    expect(capitalize("the quick fox")).toBe("The quick fox");
+  });
 });
 ```
 
@@ -83,18 +89,18 @@ describe('capitalize', () => {
 You can also ignore tests momentarily by adding an `x` at the front:
 
 ```javascript
-xdescribe('capitalize', () => {
-	test('returns a capitalized word', () => {
-		expect(capitalize('hello')).toBe('Hello');
-	});
+xdescribe("capitalize", () => {
+  test("returns a capitalized word", () => {
+    expect(capitalize("hello")).toBe("Hello");
+  });
 
-	test('does nothing if the word is already capitalized', () => {
-		expect(capitalize('Hello')).toBe('Hello');
-	});
+  test("does nothing if the word is already capitalized", () => {
+    expect(capitalize("Hello")).toBe("Hello");
+  });
 
-	test('capitalizes the first word of a sentence', () => {
-		expect(capitalize('the quick fox')).toBe('The quick fox');
-	});
+  test("capitalizes the first word of a sentence", () => {
+    expect(capitalize("the quick fox")).toBe("The quick fox");
+  });
 });
 ```
 
