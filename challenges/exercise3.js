@@ -2,9 +2,9 @@ export function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
 
   let nNums = [];
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] < 1) nNums.push(nums[i]);
-  }
+  nums.forEach((item) => {
+    if (item < 1) nNums.push(item);
+  });
 
   nNums.sort((a, b) => {
     a - b;
@@ -17,9 +17,9 @@ export function findNamesBeginningWith(names, char) {
   if (!char) throw new Error("char is required");
 
   let nNames = [];
-  for (let i = 0; i < names.length; i++) {
-    if (names[i].charAt(0) === char) nNames.push(names[i]);
-  }
+  names.forEach((item) => {
+    if (item.charAt(0) === char) nNames.push(item);
+  });
 
   return nNames;
 }
@@ -28,9 +28,10 @@ export function findVerbs(words) {
   if (!words) throw new Error("words is required");
 
   let nWords = [];
-  for (let i = 0; i < words.length; i++) {
-    if (words[i].slice(0, 3) === "to ") nWords.push(words[i]);
-  }
+  words.forEach((item) => {
+    if (item.slice(0, 3) === "to ") nWords.push(item);
+  });
+
   return nWords;
 }
 
@@ -38,9 +39,10 @@ export function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
 
   let nNums = [];
-  for (let i = 0; i < nums.length; i++) {
-    if (Number.isInteger(nums[i])) nNums.push(nums[i]);
-  }
+  nums.forEach((item) => {
+    if (Number.isInteger(item)) nNums.push(item);
+  });
+
   return nNums;
 }
 
@@ -48,9 +50,9 @@ export function getCities(users) {
   if (!users) throw new Error("users is required");
 
   let cities = [];
-  for (let i = 0; i < users.length; i++) {
-    cities.push(users[i].data.city["displayName"]);
-  }
+  users.forEach((item) => {
+    cities.push(item.data.city["displayName"]);
+  });
 
   return cities;
 }
@@ -59,9 +61,10 @@ export function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
 
   let nNums = [];
-  for (let i = 0; i < nums.length; i++) {
-    nNums.push(Math.round(Math.sqrt(nums[i]) * 100) / 100);
-  }
+  nums.forEach((item) => {
+    nNums.push(Math.round(Math.sqrt(item) * 100) / 100);
+  });
+
   return nNums;
 }
 
@@ -71,10 +74,9 @@ export function findSentencesContaining(sentences, str) {
 
   let nSentences = [];
   let s = RegExp(str, "i");
-
-  for (let i = 0; i < sentences.length; i++) {
-    if (sentences[i].match(s)) nSentences.push(sentences[i]);
-  }
+  sentences.forEach((item) => {
+    if (item.match(s)) nSentences.push(item);
+  });
 
   return nSentences;
 }
@@ -83,9 +85,9 @@ export function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
 
   let mLength = [];
-  for (let i = 0; i < triangles.length; i++) {
-    mLength.push(Math.max(...triangles[i]));
-  }
+  triangles.forEach((item) => {
+    mLength.push(Math.max(...item));
+  });
 
   return mLength;
 }
