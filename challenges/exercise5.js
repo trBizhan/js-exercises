@@ -128,6 +128,15 @@ export const isItPrime = (n) => {
 export const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+
+  function createMatrix(numRows, numColumnns, fillValue) {
+    return [...Array(numRows)].map(() => Array(numColumnns).fill(fillValue));
+  }
+
+  let myArr = [];
+  myArr = createMatrix(n, n, fill);
+
+  return myArr;
 };
 
 /**
@@ -147,4 +156,17 @@ export const createMatrix = (n, fill) => {
 export const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+
+  const pattern = new RegExp(day, "i");
+
+  const checkCovered = () => {
+    let count = 0;
+    for (let i = 0; i < staff.length; i++) {
+      if (pattern.test(staff[i].rota)) count++;
+      if (count >= 3) break;
+    }
+    return count >= 3;
+  };
+
+  return checkCovered();
 };

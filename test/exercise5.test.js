@@ -3,6 +3,8 @@ import {
   isValidDNA,
   getComplementaryDNA,
   isItPrime,
+  createMatrix,
+  areWeCovered,
 } from "../challenges/exercise5";
 
 describe("sumMultiples", () => {
@@ -74,5 +76,99 @@ describe("isItPrime", () => {
     expect(isItPrime(3)).toBe(true);
     expect(isItPrime(7)).toBe(true);
     expect(isItPrime(4)).toBe(false);
+  });
+});
+
+describe("createMatrix", () => {
+  test("test exception thrown if number not passed", () => {
+    expect(() => {
+      createMatrix();
+    }).toThrow("n is required");
+  });
+
+  test("test exception thrown if fill not passed", () => {
+    expect(() => {
+      createMatrix(3);
+    }).toThrow("fill is required");
+  });
+
+  test("return matrix", () => {
+    expect(createMatrix(3, "foo")).toEqual([
+      ["foo", "foo", "foo"],
+      ["foo", "foo", "foo"],
+      ["foo", "foo", "foo"],
+    ]);
+  });
+
+  test("return matrix", () => {
+    expect(createMatrix(2, "hello")).toEqual([
+      ["hello", "hello"],
+      ["hello", "hello"],
+    ]);
+  });
+});
+
+describe("areWeCovered", () => {
+  test("test exception thrown if staff not passed", () => {
+    expect(() => {
+      areWeCovered();
+    }).toThrow("staff is required");
+  });
+
+  test("test exception thrown if day not passed", () => {
+    expect(() => {
+      areWeCovered([]);
+    }).toThrow("day is required");
+  });
+
+  test("test if cafe is covered ", () => {
+    expect(
+      areWeCovered(
+        [
+          { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+          {
+            name: "Pedro",
+            rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"],
+          },
+          { name: "Steve", rota: ["Saturday", "Tuesday", "Wednesday"] },
+        ],
+        "Tuesday"
+      )
+    ).toEqual(true);
+  });
+
+  test("test if cafe is covered, case insensitive day", () => {
+    expect(
+      areWeCovered(
+        [
+          { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+          {
+            name: "Pedro",
+            rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"],
+          },
+          { name: "Steve", rota: ["Saturday", "Tuesday", "Wednesday"] },
+        ],
+        "tuesday"
+      )
+    ).toEqual(true);
+  });
+
+  test("test if cafe is covered, not enough staff", () => {
+    expect(
+      areWeCovered(
+        [
+          { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+          {
+            name: "Pedro",
+            rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"],
+          },
+        ],
+        "tuesday"
+      )
+    ).toEqual(false);
+  });
+
+  test("test if cafe is covered, no staff", () => {
+    expect(areWeCovered([], "tuesday")).toEqual(false);
   });
 });
