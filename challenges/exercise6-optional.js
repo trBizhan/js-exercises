@@ -143,8 +143,8 @@ export const hexToRGB = (hexStr) => {
     return arr;
   };
 
-  const retRgbStr = "rgb" + "(" + createStr(hexToRgb(hexStr)).join(",") + ")";
-  return retRgbStr;
+  const rgbStr = "rgb" + "(" + createStr(hexToRgb(hexStr)).join(",") + ")";
+  return rgbStr;
 };
 
 /**
