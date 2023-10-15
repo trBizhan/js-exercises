@@ -2,6 +2,7 @@ import {
   sumDigits,
   createRange,
   getScreentimeAlertList,
+  hexToRGB,
 } from "../challenges/exercise6-optional";
 
 describe("sumDigits", () => {
@@ -144,5 +145,22 @@ describe("getScreentimeAlertList", () => {
       "beth_1234",
       "sam_j_1989",
     ]);
+  });
+});
+
+describe("hexToRGB", () => {
+  test("test exception thrown if hexStr not passed", () => {
+    expect(() => {
+      hexToRGB();
+    }).toThrow("hexStr is required");
+  });
+  test("return rgb color code", () => {
+    expect(hexToRGB("#FF1133")).toBe("rgb(255,17,51)");
+  });
+  test("return rgb color code", () => {
+    expect(hexToRGB("#000000")).toBe("rgb(0,0,0)");
+  });
+  test("return rgb color code", () => {
+    expect(hexToRGB("#aa1133")).toBe("rgb(170,17,51)");
   });
 });
