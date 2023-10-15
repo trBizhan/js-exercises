@@ -159,4 +159,48 @@ export const hexToRGB = (hexStr) => {
  */
 export const findWinner = (board) => {
   if (board === undefined) throw new Error("board is required");
+
+  const loop = (item) => {
+    for (let elem in item) {
+      let x = 0;
+      let z = 0;
+      for (let i = 0; i < 3; i++) {
+        if (item[elem][i] === "X") x++;
+        if (item[elem][i] === "0") z++;
+      }
+      if (x === 3) return "X";
+      if (z === 3) return "0";
+    }
+    return null;
+  };
+
+  const flattenArr = (item) => {
+    let flatArr = item; // all rows
+    // get columns
+    for (let r = 0; r < 3; r++) {
+      let eachCol = [];
+      for (let c = 0; c < 3; c++) {
+        eachCol.push(item[c][r]);
+      }
+      flatArr.push(eachCol);
+    }
+
+    // get diagonals
+    let eachDiag = [];
+    for (let i = 0; i < 3; i++) {
+      eachDiag.push(item[i][i]);
+    }
+    flatArr.push(eachDiag);
+    eachDiag = [];
+    for (let i = 0, c = 2; i < 3; i++, c--) {
+      eachDiag.push(item[i][c]);
+    }
+    flatArr.push(eachDiag);
+
+    return flatArr;
+  };
+
+  const result = (item) => loop(flattenArr(item));
+
+  return result(board);
 };

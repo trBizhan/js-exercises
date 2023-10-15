@@ -3,6 +3,7 @@ import {
   createRange,
   getScreentimeAlertList,
   hexToRGB,
+  findWinner,
 } from "../challenges/exercise6-optional";
 
 describe("sumDigits", () => {
@@ -162,5 +163,56 @@ describe("hexToRGB", () => {
   });
   test("return rgb color code", () => {
     expect(hexToRGB("#aa1133")).toBe("rgb(170,17,51)");
+  });
+});
+
+describe("findWinner", () => {
+  test("test exception thrown if board not passed", () => {
+    expect(() => {
+      findWinner();
+    }).toThrow("board is required");
+  });
+
+  test("return the winner X", () => {
+    const board = [
+      ["X", "0", null],
+      ["X", null, "0"],
+      ["X", null, "0"],
+    ];
+    expect(findWinner(board)).toBe("X");
+  });
+  test("return the winner, from diagonal", () => {
+    const board = [
+      ["X", "0", null],
+      ["X", "X", "0"],
+      ["0", null, "X"],
+    ];
+    expect(findWinner(board)).toBe("X");
+  });
+
+  test("return the winner, null", () => {
+    const board = [
+      ["X", "0", null],
+      ["X", null, "0"],
+      ["0", null, "0"],
+    ];
+    expect(findWinner(board)).toBe(null);
+  });
+  test("return the winner, from diagonal", () => {
+    const board = [
+      ["X", "0", "0"],
+      ["X", "0", "0"],
+      ["0", null, "0"],
+    ];
+    expect(findWinner(board)).toBe("0");
+  });
+
+  test("return the winner, from a row ", () => {
+    const board = [
+      ["X", "0", "0"],
+      ["0", "0", "0"],
+      ["x", null, "0"],
+    ];
+    expect(findWinner(board)).toBe("0");
   });
 });
