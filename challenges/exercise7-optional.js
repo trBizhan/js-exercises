@@ -32,14 +32,19 @@ export function splitThatString(string) {
   return [...string];
 }
 
-// Optional Chaining Bonus activity!
-
 export function addressLookUp(user) {
   if (!user) throw new Error("user is required");
 
-  const {
-    address: { postcode },
-  } = user;
+  let addressLookUp = (uObj) => {
+    const {
+      address: { postcode },
+    } = uObj;
 
-  return postcode;
+    return postcode;
+  };
+
+  let checkAddress = (uObj) =>
+    "address" in uObj ? addressLookUp(uObj) : undefined;
+
+  return checkAddress(user);
 }
