@@ -35,7 +35,7 @@ export function splitThatString(string) {
 export function addressLookUp(user) {
   if (!user) throw new Error("user is required");
 
-  let addressLookUp = (uObj) => {
+  const addressLookUp = (uObj) => {
     const {
       address: { postcode },
     } = uObj;
@@ -43,7 +43,7 @@ export function addressLookUp(user) {
     return postcode;
   };
 
-  let checkAddress = (uObj) =>
+  const checkAddress = (uObj) =>
     "address" in uObj ? addressLookUp(uObj) : undefined;
 
   return checkAddress(user);
